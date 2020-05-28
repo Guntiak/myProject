@@ -9,9 +9,9 @@
 
 ## Todolist
 
-	* Commit ce fichier 1
-	* Push ce fichier 2
-	* Prier pour que ça marche 3
+* Commit ce fichier 1
+* Push ce fichier 2
+* Prier pour que ça marche 3
 
 ## Organisation
 
