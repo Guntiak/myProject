@@ -15,10 +15,14 @@
 
 ## Organisation
 
-	Un seul fichier
+	~/readme.md
+	~/gitTest/bin
+	~/gitTest/obj
+	~/gitTest/gitTest.cbp
+	~/gitTest/main.cpp
 
 ## Code source
 
-	C++
+	main.cpp
 
 
