@@ -1,0 +1,19 @@
+//apply plugin: "distribution"
+apply plugin: "base"
+
+//def majorVersion = System.getenv("MAJOR_VERSION") ?: "1"
+//def minorVersion = System.getenv("MINOR_VERSION") ?: "0"
+//version = majorVersion + "." + minorVersion 
+//def srcDir='project'
+//def targetDir='project'
+
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+task zip(type: Zip, group: "Archive") {
+    from "project"
+	destinationDir = file("application-1.0")
+    archiveFileName = "basic-demo-1.0.zip"
+}
