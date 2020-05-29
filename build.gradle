@@ -1,19 +1,61 @@
-//apply plugin: "distribution"
-apply plugin: "base"
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
+  }
+}
 
-//def majorVersion = System.getenv("MAJOR_VERSION") ?: "1"
-//def minorVersion = System.getenv("MINOR_VERSION") ?: "0"
-//version = majorVersion + "." + minorVersion 
-//def srcDir='project'
-//def targetDir='project'
+apply plugin: "org.hasnat.php-build-plugin"
+apply plugin: "distribution"
+apply plugin: "maven-publish"
 
-task hello {
-    doLast {
-        println 'Hello world!'
+def majorVersion = System.getenv("MAJOR_VERSION") ?: "1"
+def minorVersion = System.getenv("MINOR_VERSION") ?: "0"
+version = majorVersion + "." + minorVersion 
+
+task purge(type:Delete) {
+  //println 'Cleaning up old files'
+  delete 'vendor', 'logs', 'build'
+}
+
+task installDeps(type: org.swissphpfriends.gradle.task.ComposerInstall) {
+    workingDirectory = "./project"
+    doNotUpdatePhar = true
+}
+
+
+def tarfile = "application-" + version
+task packageDistribution(type: Zip, dependsOn: installDeps) {
+    archiveFileName = tarfile + ".zip"
+    destinationDirectory = file("project/build")
+
+    from ('project') { into 'project' }
+    
+}
+
+group = 'laravel-kingoludo'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact source: packageDistribution, extension: 'zip'
+        }
+    }
+    repositories {
+        maven {
+            //credentials {
+            //    username nexusUsername
+            //    password nexusPassword
+            //}
+            url nexusRepo
+        }
     }
 }
-task zip(type: Zip, group: "Archive") {
-    from "project"
-	destinationDir = file("application-1.0")
-    archiveFileName = "basic-demo-1.0.zip"
-}
+
+assemble.dependsOn packageDistribution
+   build.dependsOn assemble
+ publish.dependsOn build
