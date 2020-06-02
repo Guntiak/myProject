@@ -68,6 +68,14 @@ group = 'Integration_continue'
 application {
         source.from file('src')
 }
+model {
+  components {
+    main(NativeExecutableSpec) {
+      binaries.all {
+      }
+    }
+  }
+}
 publishing {
     publications {
         maven(MavenPublication) {
