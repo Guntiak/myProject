@@ -9,7 +9,7 @@ buildscript {
   }
   dependencies {
     classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
-	classpath "org.springframework.boot"
+	classpath "javax.xml.bind:jaxb-api:2.3.0"
   }
 }
 
