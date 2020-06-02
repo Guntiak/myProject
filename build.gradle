@@ -62,7 +62,7 @@ task cppCheck(type: Exec, group: "generate cpp check") {
 }
 
 group = 'Integration_continue'
-library {
+application {
         source.from file('src')
         privateHeaders.from file('src')
         publicHeaders.from file('include')
