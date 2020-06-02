@@ -1,3 +1,4 @@
+def env = System.getenv()
 
 apply plugin: "base"
 
@@ -18,8 +19,8 @@ apply plugin: "distribution"
 apply plugin: "maven-publish"
 
 def majorVersion = System.getenv("MAJOR_VERSION") ?: "1"
-def minorVersion = System.getenv("MINOR_VERSION") ?: "0"
-version = majorVersion + "." + minorVersion 
+//def minorVersion = System.getenv("MINOR_VERSION") ?: "0"
+version = majorVersion + "." + env['BULD_NUMBER'] 
 
 task hello {
     doLast {
