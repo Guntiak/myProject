@@ -46,8 +46,8 @@ task packageDistribution(type: Zip) {
 }
 task zip(type: Zip, group: "Archive") {
     from "project"
-	destinationDir = file("application-"+version)
-    archiveFileName = "basic-demo-1.0.zip"
+	destinationDir = file(tarfile)
+    archiveFileName = "basic-demo-"+version+".zip"
 }
 task cppCheck(type: Exec, group: "generate cpp check") {
     executable 'sh'
