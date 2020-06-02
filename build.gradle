@@ -45,10 +45,6 @@ task zip(type: Zip, group: "Archive") {
     archiveFileName = "basic-demo-1.0.zip"
 }
 
-task cppChecking(type: Exec, description: 'cpp check') {
-	executable 'sh'
-	args '-c',"cppcheck --xml --xml-version=2 project 2> cppcheck.xml"
-}
 
 publishing {
     publications {
