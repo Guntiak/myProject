@@ -9,11 +9,12 @@ buildscript {
   }
   dependencies {
     classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
+	classpath "javax.xml.bind:jaxb-api:2.3.0"
   }
 }
 
 apply plugin: "org.hasnat.php-build-plugin"
-apply plugin: "javax.xml.bind:jaxb-api:2.3.0"
+//apply plugin: "javax.xml.bind:jaxb-api:2.3.0"
 apply plugin: "distribution"
 apply plugin: "maven-publish"
 
