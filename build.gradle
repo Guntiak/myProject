@@ -17,6 +17,7 @@ apply plugin: "org.hasnat.php-build-plugin"
 apply plugin: "distribution"
 apply plugin: "maven-publish"
 apply plugin: "org.sonarqube"
+apply plugin: "cpp-application"
 
 def majorVersion = System.getenv("MAJOR_VERSION") ?: "1"
 //def minorVersion = System.getenv("MINOR_VERSION") ?: "0"
