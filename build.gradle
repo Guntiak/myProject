@@ -16,23 +16,6 @@ apply plugin: "org.hasnat.php-build-plugin"
 apply plugin: "distribution"
 apply plugin: "maven-publish"
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            artifact source: packageDistribution, extension: 'zip'
-        }
-    }
-    repositories {
-        maven {
-            //credentials {
-            //    username nexusUsername
-            //    password nexusPassword
-            //}
-            url nexusRepo
-        }
-    }
-}
-
 task hello {
     doLast {
         println 'Hello world!'
@@ -55,3 +38,21 @@ task zip(type: Zip, group: "Archive") {
 	destinationDir = file("application-1.0")
     archiveFileName = "basic-demo-1.0.zip"
 }
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact source: packageDistribution, extension: 'zip'
+        }
+    }
+    repositories {
+        maven {
+            //credentials {
+            //    username nexusUsername
+            //    password nexusPassword
+            //}
+            url nexusRepo
+        }
+    }
+}
+
