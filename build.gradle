@@ -27,6 +27,10 @@ task hello {
     }
 }
 
+task purge(type:Delete) {
+  delete 'logs', 'build'
+}
+
 task installDeps(type: org.swissphpfriends.gradle.task.ComposerInstall) {
     workingDirectory = "./project"
     doNotUpdatePhar = true
