@@ -80,8 +80,8 @@ publishing {
 
 sonarqube {
     properties {
-        property "sonar.sources", "app"
-        property "sonar.php.tests.reportPath", "build/reports/unitreport.xml"
+        property "sonar.sources", "project"
+        property "sonar.php.tests.reportPath", "build/unitreport.xml"
     }
 }
 
