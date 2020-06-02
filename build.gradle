@@ -17,6 +17,10 @@ apply plugin: "org.hasnat.php-build-plugin"
 apply plugin: "distribution"
 apply plugin: "maven-publish"
 
+def majorVersion = System.getenv("MAJOR_VERSION") ?: "1"
+def minorVersion = System.getenv("MINOR_VERSION") ?: "0"
+version = majorVersion + "." + minorVersion 
+
 task hello {
     doLast {
         println 'Hello world!'
@@ -24,11 +28,11 @@ task hello {
 }
 
 task installDeps(type: org.swissphpfriends.gradle.task.ComposerInstall) {
-    workingDirectory = "./projectRomainLopez"
+    workingDirectory = "./project"
     doNotUpdatePhar = true
 }
 
-group = 'romain_lopez'
+
 def tarfile = "application-1.0"
 task packageDistribution(type: Zip) {
     archiveFileName = tarfile + ".zip"
@@ -50,7 +54,7 @@ task cppCheck(type: Exec, group: "generate cpp check") {
 	args '-c',"cppcheck --xml --xml-version=2 project 2> cppcheck.xml"
 }
 
-
+group = 'laravel-kingoludo'
 publishing {
     publications {
         maven(MavenPublication) {
