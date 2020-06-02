@@ -9,12 +9,14 @@ buildscript {
   dependencies {
     classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
 	classpath "javax.xml.bind:jaxb-api:2.3.0"
+	classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
   }
 }
 
 apply plugin: "org.hasnat.php-build-plugin"
 apply plugin: "distribution"
 apply plugin: "maven-publish"
+apply plugin: "org.sonarqube"
 
 def majorVersion = System.getenv("MAJOR_VERSION") ?: "1"
 //def minorVersion = System.getenv("MINOR_VERSION") ?: "0"
@@ -73,6 +75,13 @@ publishing {
             }
             url nexusRepo
         }
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.sources", "app"
+        property "sonar.php.tests.reportPath", "build/reports/unitreport.xml"
     }
 }
 
