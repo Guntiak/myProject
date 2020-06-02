@@ -54,7 +54,7 @@ task cppCheck(type: Exec, group: "generate cpp check") {
 	args '-c',"cppcheck --xml --xml-version=2 project 2> cppcheck.xml"
 }
 
-group = 'romainLopez'
+group = 'Integration_continue'
 publishing {
     publications {
         maven(MavenPublication) {
