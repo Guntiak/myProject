@@ -5,7 +5,7 @@ buildscript {
   repositories {
     maven {
       url "https://plugins.gradle.org/m2/"
-	  url "https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api"
+	  url "https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api/"
     }
   }
   dependencies {
