@@ -14,7 +14,7 @@ buildscript {
 }
 
 apply plugin: "org.hasnat.php-build-plugin"
-//apply plugin: "javax.xml.bind:jaxb-api:2.3.0"
+apply plugin: "org.springframework.boot"
 apply plugin: "distribution"
 apply plugin: "maven-publish"
 
