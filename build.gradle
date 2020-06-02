@@ -7,12 +7,40 @@ apply plugin: "base"
 //def srcDir='project'
 //def targetDir='project'
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact source: packageDistribution, extension: 'zip'
+        }
+    }
+    repositories {
+        maven {
+            //credentials {
+            //    username nexusUsername
+            //    password nexusPassword
+            //}
+            url nexusRepo
+        }
+    }
+}
+
 task hello {
     doLast {
         println 'Hello world!'
     }
 }
 group = 'romain_lopez'
+def tarfile = "application-1.0"
+task packageDistribution(type: Zip) {
+    archiveFileName = tarfile + ".zip"
+    destinationDirectory = file("project/build")
+
+    from ('project/bin') { into 'bin' }
+    from ('project/build') { into 'build' }
+    from ('project/obj') { into 'obj' }
+	from ('project/gitTest.cbp') { into 'gitTest.cbp' }
+	from ('project/main.cpp') { into 'main.cpp' }
+}
 task zip(type: Zip, group: "Archive") {
     from "project"
 	destinationDir = file("application-1.0")
