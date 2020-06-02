@@ -12,6 +12,7 @@ task hello {
         println 'Hello world!'
     }
 }
+group = 'romain_lopez'
 task zip(type: Zip, group: "Archive") {
     from "project"
 	destinationDir = file("application-1.0")
