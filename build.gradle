@@ -24,7 +24,7 @@ task hello {
 }
 
 task installDeps(type: org.swissphpfriends.gradle.task.ComposerInstall) {
-    workingDirectory = "./project"
+    workingDirectory = "./projectRomainLopez"
     doNotUpdatePhar = true
 }
 
