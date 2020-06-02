@@ -32,6 +32,9 @@ task hello {
 
 task purge(type:Delete) {
   delete 'logs', 'build'
+  doLast {
+	file('build/exe/main/release/myProject_RomainLopez').mkdirs()
+  }
 }
 
 task installDeps(type: org.swissphpfriends.gradle.task.ComposerInstall) {
