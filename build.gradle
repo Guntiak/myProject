@@ -64,8 +64,6 @@ task cppCheck(type: Exec, group: "generate cpp check") {
 group = 'Integration_continue'
 application {
         source.from file('src')
-        privateHeaders.from file('src')
-        publicHeaders.from file('include')
 }
 publishing {
     publications {
