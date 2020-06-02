@@ -76,6 +76,11 @@ model {
       }
     }
   }
+  platforms {
+        x64 {
+            architecture "x86_64"
+        }
+    }
 }
 publishing {
     publications {
