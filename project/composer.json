@@ -1,7 +1,7 @@
 {
     "name": "romainlopez/project",
     "description": "Romain test project",
-    "keywords": ["framework", "laravel"],
+    "keywords": ["framework", "rolo"],
     "license": "MIT",
     "type": "project",
     "require": {
