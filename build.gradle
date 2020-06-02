@@ -67,7 +67,7 @@ task cppCheck(type: Exec, group: "generate cpp check") {
 
 group = 'Integration_continue'
 application {
-        source.from file('project/src')
+        source.from file('project/src/main/cpp')
 }
 model {
   components {
