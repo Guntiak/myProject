@@ -1,11 +1,20 @@
-//apply plugin: "distribution"
+
 apply plugin: "base"
 
-//def majorVersion = System.getenv("MAJOR_VERSION") ?: "1"
-//def minorVersion = System.getenv("MINOR_VERSION") ?: "0"
-//version = majorVersion + "." + minorVersion 
-//def srcDir='project'
-//def targetDir='project'
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
+  }
+}
+
+apply plugin: "org.hasnat.php-build-plugin"
+apply plugin: "distribution"
+apply plugin: "maven-publish"
 
 publishing {
     publications {
