@@ -31,9 +31,10 @@ task hello {
 }
 
 task purge(type:Delete) {
-  delete 'logs', 'build'
+  delete 'logs', 'project/build'
   doLast {
 	  file('project/build').mkdirs()
+	  
 	//file('project/build/exe/main/release/myProject_RomainLopez').mkdirs()
 	//file('build/exe/main/release/myProject_RomainLopez').mkdirs()
   }
