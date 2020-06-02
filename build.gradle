@@ -21,6 +21,12 @@ task hello {
         println 'Hello world!'
     }
 }
+
+task installDeps(type: org.swissphpfriends.gradle.task.ComposerInstall) {
+    workingDirectory = "./project"
+    doNotUpdatePhar = true
+}
+
 group = 'romain_lopez'
 def tarfile = "application-1.0"
 task packageDistribution(type: Zip) {
@@ -56,3 +62,6 @@ publishing {
     }
 }
 
+assemble.dependsOn packageDistribution
+build.dependsOn assemble
+publish.dependsOn build
